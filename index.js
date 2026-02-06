@@ -1,10 +1,3 @@
-/*
-document.getElementById("focusCard").addEventListener("click", () => {
-  
-    document.body.style.backgroundColor = "lightblue";
-});
-*/
-
 const scenes = {
     intro: {
         zoom: 1,
@@ -23,7 +16,7 @@ const scenes = {
 };
 
 function draw() {
-
+    
 }
 
 const canvasWrapper = document.getElementById("canvas-wrapper");
@@ -46,12 +39,11 @@ function start() {
     canvas.style.transform = "scale(1.0)";
     canvas.style.zoom = "100%";
 
-    var btn = document.createElement("button");
-    btn.style.backgroundColor = "blue";
-    btn.style.zIndex = "6";
-    btn.appendChild(document.createTextNode("Next Scene"));
-    canvas.append(canvasWrapper);
-
+    const overlay_btn = document.getElementById("overlay-btn");
+    overlay_btn.addEventListener("click", () => {
+        document.getElementById("overlay").style.display = "none";
+        draw("profile");
+    });
     
 
     //canvas.style.transform = "translate(60px, 400px) scale(4.0)";
