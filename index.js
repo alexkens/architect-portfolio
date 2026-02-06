@@ -8,15 +8,18 @@ const scenes = {
     },
     profile: {
         zoom: 2,
-        scale: 1.0,
-        x: 50,
-        y: 50,
+        scale: 3.5,
+        x: 150,
+        y: -230,
         next: "intro",
     },
 };
 
-function draw() {
-    
+function draw(scene, canvas) {
+    console.log(scenes);
+    console.log(scenes[scene]);
+    canvas.style.transform = `scale(${scenes[scene].scale}) translate(${scenes[scene].x}px, ${scenes[scene].y}px)`;
+    // canvas.style.transform = "translate(50px, 50px)";
 }
 
 const canvasWrapper = document.getElementById("canvas-wrapper");
@@ -42,7 +45,7 @@ function start() {
     const overlay_btn = document.getElementById("overlay-btn");
     overlay_btn.addEventListener("click", () => {
         document.getElementById("overlay").style.display = "none";
-        draw("profile");
+        draw("profile", canvas);
     });
     
 

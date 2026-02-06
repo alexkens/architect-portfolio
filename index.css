@@ -22,3 +22,24 @@
 
     color: white;
 }
+
+#canvas {
+    transition: transform 2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+#bottom-nav {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    color: white;
+}
+
+#bottom-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+#bottom-nav ul li {
+    width: 100px;
+}
