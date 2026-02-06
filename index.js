@@ -1,26 +1,23 @@
-/*
-document.getElementById("focusCard").addEventListener("click", () => {
-  
-    document.body.style.backgroundColor = "lightblue";
-});
-*/
-
 const scenes = {
     intro: {
         zoom: 1,
+        scale: 1.0,
         x: 0,
         y: 0,
-        text: "Willkommen zur Geschichte.",
-        next: "center",
+        next: "profile",
     },
-    center: {
+    profile: {
         zoom: 2,
+        scale: 1.0,
         x: 50,
         y: 50,
-        text: "Es ist die Mitte!",
         next: "intro",
     },
 };
+
+function draw() {
+    
+}
 
 const canvasWrapper = document.getElementById("canvas-wrapper");
 canvasWrapper.style.display = "flex";
@@ -40,7 +37,14 @@ function start() {
     })
     canvas.style.height = "100vh";
     canvas.style.transform = "scale(1.0)";
-    canvas.style.zoom = "400%";
+    canvas.style.zoom = "100%";
+
+    const overlay_btn = document.getElementById("overlay-btn");
+    overlay_btn.addEventListener("click", () => {
+        document.getElementById("overlay").style.display = "none";
+        draw("profile");
+    });
+    
 
     //canvas.style.transform = "translate(60px, 400px) scale(4.0)";
     // canvas.style.transform = "rotate(0.5turn)"
