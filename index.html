@@ -4,20 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duc Nguyen | Architekt</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer type="module" src="index.js"></script>
 </head>
-<body>
+<body class="font-mono">
     <div id="overlay">
         <div id="intro">
-            <div>
-                <h1>Duc Nguyen</h1>
-                <p>Architekt</p>
-                <p>Tischler</p>
-                <p>Minimalist</p>
-                <div>Ich bin bereits seit vielen Jahren als Architekt angestellt, und habe seit meiner Studienzeit an einer Menge von verschiedensten Projekten gearbeitet und geleitet.</div>
-                <div>Auf dieser Seite können Sie entweder per Mausklick, Enter- oder Pfeil-Taste mein Portfolio und meinen Lebensweg betrachten. Viel Spaß!</div>
+            <div class="flex">
+                <div class="flex-col">
+                    <div class="flex">
+                        <h1 class="text-9xl">
+                            Duc
+                        </h1>
+                        <h1 class="text-9xl font-thin"></h1>
+                        <div class="flex flex-col justify-center pt-4 pl-12">
+                            <div>Architekt</div>
+                            <div>Tischler</div>
+                            <div>Minimalist</div>
+                        </div>
+                    </div>
+                    <h1 class="text-9xl">
+                        Nguyen
+                    </h1>
+                </div>
+                <div class="flex">
+                    <div>Ich bin bereits seit vielen Jahren als Architekt angestellt, und habe seit meiner Studienzeit an einer Menge von verschiedensten Projekten gearbeitet und geleitet.</div>
+                    <div>Auf dieser Seite können Sie entweder per Mausklick, Enter- oder Pfeil-Taste mein Portfolio und meinen Lebensweg betrachten. Viel Spaß!</div>
+                </div>
             </div>
             <button id="overlay-btn">Next Scene!</button>
         </div>
