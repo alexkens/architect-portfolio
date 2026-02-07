@@ -15,11 +15,33 @@ const scenes = {
     },
 };
 
-function draw(scene, canvas) {
+function draw(scene, canvas, ctx) {
     console.log(scenes);
     console.log(scenes[scene]);
     canvas.style.transform = `scale(${scenes[scene].scale}) translate(${scenes[scene].x}px, ${scenes[scene].y}px)`;
     // canvas.style.transform = "translate(50px, 50px)";
+
+    const smallImg = new Image();
+    smallImg.src = 'profile-pic.jpg';
+    
+    smallImg.onload = function() {
+        const x = 1455;
+        const y = 2130;
+        const size = 200;
+        const radius = size / 2;
+        
+        // Kreis-Clipping-Pfad erstellen
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x + radius, y + radius, radius, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+        
+        // Bild zeichnen (wird nur im Kreis sichtbar)
+        ctx.drawImage(smallImg, x, y, size, size);
+        
+        ctx.restore();
+    };
 }
 
 const canvasWrapper = document.getElementById("canvas-wrapper");
@@ -45,7 +67,7 @@ function start() {
     const overlay_btn = document.getElementById("overlay-btn");
     overlay_btn.addEventListener("click", () => {
         document.getElementById("overlay").style.display = "none";
-        draw("profile", canvas);
+        draw("profile", canvas, ctx);
     });
     
 
