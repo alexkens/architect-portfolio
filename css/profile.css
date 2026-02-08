@@ -1,7 +1,4 @@
-#profile {
-    /* display: none; */
-}
-
-#profile-pic {
-    
+#profile .overlay-btn {
+    display: none;
+    transform: translate(300%, -200%);
 }

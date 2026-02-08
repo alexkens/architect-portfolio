@@ -1,3 +1,13 @@
-#intro h1 {
+#intro {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+#intro .overlay-btn {
     
 }

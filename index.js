@@ -9,8 +9,15 @@ const scenes = {
     profile: {
         zoom: 2,
         scale: 3.5,
-        x: 150,
-        y: -230,
+        x: 10,
+        y: -28,
+        next: "project_1",
+    },
+    project_1: {
+        zoom: 2,
+        scale: 3.5,
+        x: -30,
+        y: 8,
         next: "intro",
     },
 };
@@ -18,7 +25,7 @@ const scenes = {
 function draw(scene, canvas, ctx) {
     console.log(scenes);
     console.log(scenes[scene]);
-    canvas.style.transform = `scale(${scenes[scene].scale}) translate(${scenes[scene].x}px, ${scenes[scene].y}px)`;
+    canvas.style.transform = `scale(${scenes[scene].scale}) translate(${scenes[scene].x}%, ${scenes[scene].y}%)`;
     // canvas.style.transform = "translate(50px, 50px)";
 
     const smallImg = new Image();
@@ -64,15 +71,27 @@ function start() {
     canvas.style.transform = "scale(1.0)";
     canvas.style.zoom = "100%";
 
-    const overlay_btn = document.getElementById("overlay-btn");
-    overlay_btn.addEventListener("click", () => {
+    const introBtn = document.querySelector("#intro .overlay-btn");
+    introBtn.addEventListener("click", () => {
         document.getElementById("overlay").style.display = "none";
+        document.querySelector("#profile .overlay-btn").style.display = "block";
         draw("profile", canvas, ctx);
     });
-    
 
-    //canvas.style.transform = "translate(60px, 400px) scale(4.0)";
-    // canvas.style.transform = "rotate(0.5turn)"
+    const profileBtn = document.querySelector("#profile .overlay-btn");
+    profileBtn.addEventListener("click", () => {
+        document.querySelector("#profile .overlay-btn").style.display = "none";
+        document.querySelector("#project_1 .overlay-btn").style.display = "block";
+        draw("project_1", canvas, ctx);
+    });
+
+    const project1btn = document.querySelector("#project_1 .overlay-btn");
+    project1btn.addEventListener("click", () => {
+        document.querySelector("#project_1 .overlay-btn").style.display = "none";
+        document.getElementById("overlay").style.display = "block";
+        draw("intro", canvas, ctx);
+    });
+    
 };
 
 start();
